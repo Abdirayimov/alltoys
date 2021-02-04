@@ -25,7 +25,7 @@ SECRET_KEY = 'yv9k3=0q_mw$g%pt)u6e+o=%d(axd1cfc)c0i6h=47jdr@u7hn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'toylesson.pythonanywhere.com']
 
 
 # Application definition
