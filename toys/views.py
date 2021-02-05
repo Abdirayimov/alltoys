@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import *
+
+from toys.models import Toy
 
 
 def dashboard(request):
-    users = User.objects.all()
+    return render(request, 'toys/dashboard.html', context={'welcome_text': 'welcome to alltoys'})
+
+
+def get_toys(request):
     toys = Toy.objects.all()
-    context = {
-        'users': users,
-        'toys': toys
-    }
-    return render(request, 'toys/dashboard.html', context)
+    return render(request, 'toys/toys.html', context={"toys": toys})

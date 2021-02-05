@@ -4,85 +4,18 @@
     <meta charset="UTF-8">
     <title>Alltoys - dashboard</title>
 </head>
-
-<style>
-    table {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #ddd;
-    }
-
-    th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4CAF50;
-        color: white;
-    }
-</style>
 <body>
-
-{#USERS#}
-<h1>List of Users</h1>
-<table>
-    <tr>
-        <th>id</th>
-        <th>first_name</th>
-        <th>last_name</th>
-        <th>age</th>
-        <th>email</th>
-        <th>address</th>
-        <th>is_active</th>
-    </tr>
-    {% for user in users %}
+<div>
+    {{ welcome_text }}
+</div>
+<div>
+    <table>
         <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.age }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.address }}</td>
-            <td>{{ user.is_active }}</td>
+            <td style="width: 100px"><a href="{% url "toys:toys" %}">Toys</a></td>
+            <td style="width: 100px"><a href="#">Users</a></td>
         </tr>
-    {% endfor %}
-</table>
-
-{#TOYS#}
-<h1>List of Toys</h1>
-<table>
-    <tr>
-        <th>name</th>
-        <th>description</th>
-        <th>user</th>
-        <th>tags</th>
-        <th>created_at</th>
-        <th>updated_at</th>
-        <th>user_id</th>
-    </tr>
-    {% for toy in toys %}
-        <tr>
-            <td>{{ toy.name }}</td>
-            <td>{{ toy.description }}</td>
-            <td>{{ toy.user }}</td>
-            <td>{{ toy.tags }}</td>
-            <td>{{ toy.created_at }}</td>
-            <td>{{ toy.updated_at }}</td>
-            <td>{{ toy.user_id }}</td>
-        </tr>
-    {% endfor %}
-</table>
+    </table>
+    <hr>
+</div>
 </body>
 </html>
