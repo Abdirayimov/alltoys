@@ -26,6 +26,7 @@ class Address(models.Model):
 class User(BaseModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, null=True, blank=True)
+    phone = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(max_length=50, null=True, blank=True)
     age = models.IntegerField()
     address = models.OneToOneField(Address, on_delete=models.PROTECT, null=True, blank=True)
@@ -50,6 +51,7 @@ class Toy(BaseModel):
     user = models.ForeignKey(User, related_name='toys', on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name='toys')
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
