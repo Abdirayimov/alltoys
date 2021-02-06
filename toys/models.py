@@ -55,3 +55,15 @@ class Toy(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class AdminUser(User):
+    is_admin = models.BooleanField(default=True)
+
+
+class ToyWithLongName(Toy):
+    class Meta:
+        proxy = True
+
+    def __str__(self):
+        return f" Toy with name {self.name}"
