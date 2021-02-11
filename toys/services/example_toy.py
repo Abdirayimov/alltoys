@@ -1,15 +1,16 @@
 from django.db import transaction
 
-from toys.models import User, Toy
+from toys.models import Company, Employee
 
 
-def create_toy():
+def update_name():
     with transaction.atomic():
-        user = User.objects.create(first_name="test user")
+        company = Company.objects.filter(id=1).update(name="TTT toys")
         try:
             with transaction.atomic():
-                toy = Toy.objects.create(name="Test toy")
-                raise Exception("Uzr!")
-        except Exception:
-            pass
-    print(user)
+                for emp in Employee.objects.all():
+                    emp.salary *= 10
+                    emp.save()
+                    raise Exception("Sorry")
+        except Exception as e:
+            print(e)

@@ -69,3 +69,21 @@ class ToyWithLongName(Toy):
 
     def __str__(self):
         return f" Toy with name {self.name}"
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=20)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+class Employee(models.Model):
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20, null=True, blank=True)
+    salary = models.DecimalField(max_digits=10, decimal_places=2)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.first_name
